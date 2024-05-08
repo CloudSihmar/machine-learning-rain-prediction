@@ -91,3 +91,44 @@ score = accuracy_score(y_test, y_pred)
 print('accuracy is ', score)
 print('time taken', time.time()-t0)
 
+
+#using Random Forrest Method
+from sklearn.ensemble import RandomForestClassifier
+
+# Assuming you have defined X (features) and y (target) appropriately
+
+t0 = time.time()
+# Data splicing
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=0)
+clf_rf = RandomForestClassifier(random_state=0)
+clf_rf.fit(X_train, y_train)
+
+# Evaluating the model using testing data set
+y_pred = clf_rf.predict(X_test)
+score = accuracy_score(y_test, y_pred)
+
+# Print the score
+print('Accuracy:', score)
+print('Time taken:', time.time()-t0)
+
+# using Decision tree Classifier
+from sklearn.tree import DecisionTreeClassifier
+
+# Assuming you have defined X (features) and y (target) appropriately
+
+t0 = time.time()
+# Data splicing
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=0)
+clf_dt = DecisionTreeClassifier(random_state=0)
+clf_dt.fit(X_train, y_train)
+
+# Evaluating the model using testing data set
+y_pred = clf_dt.predict(X_test)
+score = accuracy_score(y_test, y_pred)
+
+# Print the score
+print('Accuracy:', score)
+print('Time taken:', time.time()-t0)
+
+
+
